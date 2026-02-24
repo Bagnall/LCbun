@@ -1,0 +1,325 @@
+
+:root {
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+
+  /* Font weights (only the ones you should load) */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* Type scale */
+  --fs-display: 3rem;        /* 48px */
+  --fs-h1: 2.25rem;          /* 36px */
+  --fs-h2: 1.75rem;          /* 28px */
+  --fs-h3: 1.375rem;         /* 22px */
+  --fs-h4: 1.125rem;         /* 18px */
+  --fs-body-lg: 1.0625rem;   /* 17px */
+  --fs-body: 1rem;           /* 16px */
+  --fs-small: 0.875rem;      /* 14px */
+  --fs-label: 0.8125rem;     /* 13px */
+  --fs-caption: 0.75rem;     /* 12px */
+
+  /* Line heights */
+  --lh-tight: 1.1;
+  --lh-snug: 1.25;
+  --lh-normal: 1.4;
+  --lh-body: 1.65;
+
+  /* Letter spacing (subtle editorial polish) */
+  --ls-heading: -0.02em;
+  --ls-body: -0.01em;
+
+  /* Neutral ink (for light mode text) */
+  --ink: 11 15 20;
+
+  /* Cambridge primary scale */
+  --cambridge-50: 244 248 245;
+  --cambridge-100: 232 240 234;
+  --cambridge-200: 218 230 222;
+  --cambridge-300: 204 221 210;
+  --cambridge-400: 186 208 194;
+  --cambridge-500: 163 193 173;
+  --cambridge-600: 139 164 147;
+  --cambridge-700: 114 135 121;
+  --cambridge-800: 90 106 95;
+  --cambridge-900: 65 77 69;
+  --cambridge-950: 46 54 48;
+
+  /* Academic blue secondary scale */
+  --acadblue-50: 224 230 235;
+  --acadblue-100: 191 199 207;
+  --acadblue-200: 153 168 178;
+  --acadblue-300: 115 137 149;
+  --acadblue-400: 77 106 120;
+  --acadblue-500: 0 48 87;
+  --acadblue-600: 0 41 74;
+  --acadblue-700: 0 34 61;
+  --acadblue-800: 0 26 48;
+  --acadblue-900: 0 19 35;
+  --acadblue-950: 0 13 24;
+
+  /* Dark-mode neutral "night" */
+  --night-950: 8 10 12;
+  --night-900: 12 15 18;
+  --night-850: 18 22 26;
+  --night-800: 26 31 36;
+  --night-700: 41 49 57;
+  --night-600: 62 74 86;
+  --night-200: 197 205 213;
+  --night-100: 226 231 236;
+  --night-50: 245 247 250;
+
+  /* Status colours (accessible, subdued academic vibe) */
+  --success-500: 22 120 74;
+  --warning-500: 180 95 6;
+  --danger-500: 185 28 28;
+  --info-500: 14 116 144;
+
+  /* Spacing scale (px) */
+  --sp-0: 0px;
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-7: 32px;
+  --sp-8: 40px;
+  --sp-9: 48px;
+  --sp-10: 64px;
+  --sp-11: 80px;
+  --sp-12: 96px;
+
+  /* Content measure (reading width) */
+  --measure: 68ch;
+
+  /* Layout container max widths (optional) */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+
+  --sp-0: 0px;
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-7: 32px;
+  --sp-8: 40px;
+  --sp-9: 48px;
+  --sp-10: 64px;
+  --sp-11: 80px;
+  --sp-12: 96px;
+
+  /* Content measure (reading width) */
+  --measure: 68ch;
+
+  /* Layout container max widths (optional) */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+
+  /* Corner radii */
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 18px;
+  --r-xl: 24px;
+  --r-full: 999px;
+
+  /* Border widths */
+  --bw-1: 1px;
+  --bw-2: 2px;
+
+  /* Shadows (don’t hardcode colours; rely on opacity) */
+  --sh-sm: 0 1px 2px rgb(0 0 0 / 0.08);
+  --sh-md: 0 6px 16px rgb(0 0 0 / 0.12);
+  --sh-lg: 0 12px 28px rgb(0 0 0 / 0.16);
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --dur-fast: 120ms;
+  --dur-med: 180ms;
+  --dur-slow: 260ms;
+
+  /* Focus ring */
+  --focus-ring: 0 0 0 3px rgb(var(--acadblue-300) / 0.45);
+  /* Surfaces */
+  --bg: var(--cambridge-50);
+  --surface-1: var(--cambridge-100);
+  --surface-2: var(--cambridge-200);
+  --surface-3: var(--cambridge-300);
+
+  /* Text */
+  --text: var(--ink);
+  --text-muted: 62 74 86;         /* night-600 as muted neutral */
+  --text-subtle: 90 106 95;       /* cambridge-800 */
+
+  /* Borders */
+  --border: var(--acadblue-100);
+  --border-strong: var(--acadblue-200);
+
+  /* Brand */
+  --primary: var(--cambridge-600);
+  --primary-hover: var(--cambridge-700);
+  --primary-contrast: var(--ink);
+
+  --secondary: var(--acadblue-500);
+  --secondary-hover: var(--acadblue-600);
+  --secondary-contrast: 255 255 255;
+
+  /* Links */
+  --link: var(--acadblue-600);
+  --link-hover: var(--acadblue-500);
+
+  /* Focus */
+  --focus: var(--acadblue-300);
+
+  /* States */
+  --success: var(--success-500);
+  --warning: var(--warning-500);
+  --danger: var(--danger-500);
+  --info: var(--info-500);
+
+   /* Button sizing */
+  --btn-h-sm: 32px;
+  --btn-h-md: 40px;
+  --btn-h-lg: 48px;
+
+  --btn-px-sm: 12px;
+  --btn-px-md: 14px;
+  --btn-px-lg: 18px;
+
+  --btn-radius: var(--r-md);
+
+  /* Primary button */
+  --btn-primary-bg: var(--primary);
+  --btn-primary-bg-hover: var(--primary-hover);
+  --btn-primary-fg: var(--primary-contrast);
+
+  /* Secondary button */
+  --btn-secondary-bg: var(--secondary);
+  --btn-secondary-bg-hover: var(--secondary-hover);
+  --btn-secondary-fg: var(--secondary-contrast);
+
+  /* Ghost button */
+  --btn-ghost-bg: 0 0 0; /* use alpha in usage */
+  --btn-ghost-fg: var(--text);
+  --btn-ghost-border: var(--border);
+
+  --field-h: 44px;
+  --field-radius: var(--r-md);
+  --field-bg: var(--surface-1);
+  --field-fg: var(--text);
+  --field-placeholder: var(--text-muted);
+  --field-border: var(--border);
+  --field-border-hover: var(--border-strong);
+  --field-border-focus: var(--focus);
+
+  --field-ring: 0 0 0 3px rgb(var(--focus) / 0.35);
+
+  --card-bg: var(--surface-1);
+  --card-border: var(--border);
+  --card-radius: var(--r-lg);
+  --card-shadow: var(--sh-sm);
+
+  --panel-bg: var(--surface-2);
+  --panel-border: var(--border);
+  --panel-radius: var(--r-lg);
+
+  --nav-bg: var(--secondary);
+  --nav-fg: var(--secondary-contrast);
+  --nav-fg-muted: 224 230 235; /* acadblue-50 */
+  --nav-hover: 51 94 126;      /* acadblue-400 */
+  --nav-active: var(--acadblue-600);
+
+  --table-bg: var(--surface-1);
+  --table-row-hover: var(--surface-2);
+  --table-border: var(--border);
+  --table-head-bg: var(--surface-2);
+  --table-head-fg: var(--text);
+  --table-cell-fg: var(--text);
+  --table-cell-muted: var(--text-muted);
+
+  --callout-radius: var(--r-lg);
+  --callout-pad: var(--sp-5);
+
+  --callout-info-bg: 224 230 235;    /* acadblue-50 */
+  --callout-info-border: var(--info);
+  --callout-info-fg: var(--ink);
+
+  --callout-success-bg: 228 246 238;
+  --callout-success-border: var(--success);
+  --callout-success-fg: var(--ink);
+
+  --callout-warning-bg: 255 242 224;
+  --callout-warning-border: var(--warning);
+  --callout-warning-fg: var(--ink);
+
+  --callout-danger-bg: 255 229 229;
+  --callout-danger-border: var(--danger);
+  --callout-danger-fg: var(--ink);
+}
+
+.dark {
+  /* Surfaces */
+  --bg: var(--night-900);
+  --surface-1: var(--night-850);
+  --surface-2: var(--night-800);
+  --surface-3: var(--night-700);
+
+  /* Text */
+  --text: var(--night-50);
+  --text-muted: var(--night-200);
+  --text-subtle: var(--night-100);
+
+  /* Borders */
+  --border: var(--night-700);
+  --border-strong: var(--night-600);
+
+  /* Brand accents */
+  --primary: var(--cambridge-500);
+  --primary-hover: var(--cambridge-400);
+  --primary-contrast: var(--night-950);
+
+  --secondary: var(--acadblue-500);
+  --secondary-hover: var(--acadblue-400);
+  --secondary-contrast: 255 255 255;
+
+  /* Links */
+  --link: var(--cambridge-400);
+  --link-hover: var(--cambridge-300);
+
+  /* Focus */
+  --focus: var(--acadblue-300);
+  * Raise shadow slightly in dark mode to keep elevation readable */
+  --card-shadow: 0 6px 16px rgb(0 0 0 / 0.30);
+
+  --nav-bg: var(--night-950);  /* keeps nav calm in dark mode */
+  --nav-fg: var(--night-50);
+  --nav-fg-muted: var(--night-200);
+  --nav-hover: var(--night-800);
+  --nav-active: var(--acadblue-500);
+  
+  --callout-info-bg: 26 31 36;       /* night-800 */
+  --callout-info-border: var(--info);
+  --callout-info-fg: var(--night-50);
+
+  --callout-success-bg: 26 31 36;
+  --callout-success-border: var(--success);
+  --callout-success-fg: var(--night-50);
+
+  --callout-warning-bg: 26 31 36;
+  --callout-warning-border: var(--warning);
+  --callout-warning-fg: var(--night-50);
+
+  --callout-danger-bg: 26 31 36;
+  --callout-danger-border: var(--danger);
+  --callout-danger-fg: var(--night-50);
+}
+ 
