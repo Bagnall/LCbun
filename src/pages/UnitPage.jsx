@@ -1,9 +1,16 @@
 import * as React from "react";
 import { useParams } from "react-router-dom";
-import SiteHeader from "../components/SiteHeader.jsx";
+import { MainMenu } from "../components/MainMenu.jsx";
 import SiteFooter from "../components/SiteFooter.jsx";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../components/ui/accordion.jsx";
 import { accordionSections, getUnits } from "../data/course.js";
+
+function slugify(name) {
+	return name
+		.toLowerCase()
+		.replace(/[^a-z0-9]+/g, "-")
+		.replace(/(^-|-$)/g, "");
+}
 
 function getUnitById(id) {
 	return getUnits().find((u) => u.id === id) || { title: "Unit", description: "" };
@@ -14,9 +21,19 @@ class UnitPageInner extends React.Component {
 		const unitId = this.props.unitId;
 		const unit = getUnitById(unitId);
 
+		const navItems = accordionSections.map((name) => {
+			const slug = slugify(name);
+			return {
+				key: `menuItem-${slug}`,
+				label: name,
+				anchorId: `special-anchor-${slug}`,
+			};
+		});
+
 		return (
 			<div className="min-h-screen flex flex-col bg-bg text-text">
-				<SiteHeader showBack />
+				<div id="special-anchor-top" className="special-anchor" />
+				<MainMenu navItems={navItems} />
 
 				<main className="flex-1">
 					<section className="py-10">
@@ -51,16 +68,22 @@ class UnitPageInner extends React.Component {
 							</h2>
 
 							<Accordion type="multiple" defaultValue={["Dialogues", "Vocabulary"]}>
-								{accordionSections.map((name) => (
-									<AccordionItem key={name} value={name}>
-										<AccordionTrigger>{name}</AccordionTrigger>
-										<AccordionContent>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-											posuere, metus non commodo luctus, lacus arcu egestas neque,
-											vitae placerat lorem magna in neque.
-										</AccordionContent>
-									</AccordionItem>
-								))}
+								{accordionSections.map((name) => {
+									const slug = slugify(name);
+									return (
+										<div key={name}>
+											<div id={`special-anchor-${slug}`} className="special-anchor" />
+											<AccordionItem value={name} className="scroll-mt-28">
+												<AccordionTrigger>{name}</AccordionTrigger>
+												<AccordionContent>
+													Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+													posuere, metus non commodo luctus, lacus arcu egestas neque,
+													vitae placerat lorem magna in neque.
+												</AccordionContent>
+											</AccordionItem>
+										</div>
+									);
+								})}
 							</Accordion>
 						</div>
 					</section>
