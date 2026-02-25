@@ -5,6 +5,7 @@ import {
 	NavigationMenuLink,
 	NavigationMenuList,
 } from "./ui/navigation-menu.jsx";
+import { Link } from "react-router-dom";
 import { handleSpecialLinkClick } from "../utility.js";
 import IconButton from "./IconButton.jsx";
 import * as React from "react";
@@ -167,14 +168,14 @@ export class MainMenu extends React.Component {
 						<NavigationMenuList className="menu-left">
 							<NavigationMenuItem>
 								<NavigationMenuLink asChild>
-									<a
+									<Link to={`/`}
 										className="special-anchor nav nav-title"
 										href="#special-anchor-top"
 										onClick={this.handleNavClick}
 									>
 										<div className="nav-title-small">University of Cambridge</div>
 										<div className="nav-title-large">Language Centre</div>
-									</a>
+									</Link>
 								</NavigationMenuLink>
 							</NavigationMenuItem>
 						</NavigationMenuList>
