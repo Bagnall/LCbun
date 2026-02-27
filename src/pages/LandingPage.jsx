@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import SiteHeader from "../components/SiteHeader.jsx";
+import { MainMenu } from "../components/MainMenu.jsx";
 import SiteFooter from "../components/SiteFooter.jsx";
 import Button from "../components/ui/button.jsx";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../components/ui/card.jsx";
@@ -26,8 +26,8 @@ export default class LandingPage extends React.Component {
 		const units = getUnits();
 
 		return (
-			<div className="min-h-screen flex flex-col bg-bg text-text">
-				<SiteHeader />
+			<div className="min-h-screen flex flex-col bg-bg text-text pt-24">
+				<MainMenu />
 
 				<main className="flex-1">
 					<section className="py-10">

@@ -35,7 +35,7 @@ class UnitPageInner extends React.Component {
 				<div id="special-anchor-top" className="special-anchor" />
 				<MainMenu navItems={navItems} />
 
-				<main className="flex-1">
+				<main className="flex-1 pt-24">
 					<section className="py-10">
 						<div className="container-page">
 							<h1 className="text-[var(--fs-h1)] tracking-[var(--ls-heading)] leading-[var(--lh-snug)] font-semibold">
@@ -89,7 +89,7 @@ class UnitPageInner extends React.Component {
 					</section>
 				</main>
 
-				<SiteFooter withLinks={false} />
+				<SiteFooter withLinks={true} />
 			</div>
 		);
 	}

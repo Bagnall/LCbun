@@ -14,16 +14,16 @@
   --fw-bold: 700;
 
   /* Type scale */
-  --fs-display: 3rem;        /* 48px */
-  --fs-h1: 2.25rem;          /* 36px */
-  --fs-h2: 1.75rem;          /* 28px */
-  --fs-h3: 1.375rem;         /* 22px */
-  --fs-h4: 1.125rem;         /* 18px */
-  --fs-body-lg: 1.0625rem;   /* 17px */
-  --fs-body: 1rem;           /* 16px */
-  --fs-small: 0.875rem;      /* 14px */
-  --fs-label: 0.8125rem;     /* 13px */
-  --fs-caption: 0.75rem;     /* 12px */
+  --fs-display: 3rem; /* 48px */
+  --fs-h1: 2.25rem; /* 36px */
+  --fs-h2: 1.75rem; /* 28px */
+  --fs-h3: 1.375rem; /* 22px */
+  --fs-h4: 1.125rem; /* 18px */
+  --fs-body-lg: 1.0625rem; /* 17px */
+  --fs-body: 1rem; /* 16px */
+  --fs-small: 0.875rem; /* 14px */
+  --fs-label: 0.8125rem; /* 13px */
+  --fs-caption: 0.75rem; /* 12px */
 
   /* Line heights */
   --lh-tight: 1.1;
@@ -139,8 +139,8 @@
 
   /* Text */
   --text: var(--ink);
-  --text-muted: 62 74 86;         /* night-600 as muted neutral */
-  --text-subtle: 90 106 95;       /* cambridge-800 */
+  --text-muted: 62 74 86; /* night-600 as muted neutral */
+  --text-subtle: 90 106 95; /* cambridge-800 */
 
   /* Borders */
   --border: var(--acadblue-100);
@@ -217,7 +217,7 @@
   --nav-bg: var(--secondary);
   --nav-fg: var(--secondary-contrast);
   --nav-fg-muted: 224 230 235; /* acadblue-50 */
-  --nav-hover: 51 94 126;      /* acadblue-400 */
+  --nav-hover: 51 94 126; /* acadblue-400 */
   --nav-active: var(--acadblue-600);
 
   --table-bg: var(--surface-1);
@@ -231,7 +231,7 @@
   --callout-radius: var(--r-lg);
   --callout-pad: var(--sp-5);
 
-  --callout-info-bg: 224 230 235;    /* acadblue-50 */
+  --callout-info-bg: 224 230 235; /* acadblue-50 */
   --callout-info-border: var(--info);
   --callout-info-fg: var(--ink);
 
@@ -281,15 +281,15 @@
   --focus: var(--acadblue-300);
 
   /* Raise shadow slightly in dark mode to keep elevation readable */
-  --card-shadow: 0 6px 16px rgb(0 0 0 / 0.30);
+  --card-shadow: 0 6px 16px rgb(0 0 0 / 0.3);
 
-  --nav-bg: var(--night-950);  /* keeps nav calm in dark mode */
+  --nav-bg: var(--night-950); /* keeps nav calm in dark mode */
   --nav-fg: var(--night-50);
   --nav-fg-muted: var(--night-200);
   --nav-hover: var(--night-800);
   --nav-active: var(--acadblue-500);
 
-  --callout-info-bg: 26 31 36;       /* night-800 */
+  --callout-info-bg: 26 31 36; /* night-800 */
   --callout-info-border: var(--info);
   --callout-info-fg: var(--night-50);
 
@@ -306,7 +306,10 @@
   --callout-danger-fg: var(--night-50);
 }
 
-html, body { height: 100%; }
+html,
+body {
+  height: 100%;
+}
 
 body {
   background: rgb(var(--bg));
@@ -321,7 +324,9 @@ body {
   padding-inline: var(--sp-6);
 }
 
-.prose { max-width: var(--measure); }
+.prose {
+  max-width: var(--measure);
+}
 
 /* Better focus visibility for keyboard users */
 :focus-visible {
@@ -330,7 +335,9 @@ body {
 
 /* Subtle card hover polish */
 .card-hover {
-  transition: transform var(--dur-med) var(--ease-standard), box-shadow var(--dur-med) var(--ease-standard);
+  transition:
+    transform var(--dur-med) var(--ease-standard),
+    box-shadow var(--dur-med) var(--ease-standard);
 }
 .card-hover:hover {
   transform: translateY(-1px);
@@ -338,33 +345,39 @@ body {
 }
 
 /* Headings a touch more "Cambridge editorial" */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   letter-spacing: var(--ls-heading);
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 .prose a {
-	color: rgb(var(--link));
-	text-decoration: underline;
-	text-underline-offset: 3px;
+  color: rgb(var(--link));
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .prose a:hover {
-	color: rgb(var(--link-hover));
+  color: rgb(var(--link-hover));
 }
 
-
 .sr-only {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	white-space: nowrap;
-	border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.special-anchor {
+  scroll-margin-top: 96px; /* set to your header height */
 }

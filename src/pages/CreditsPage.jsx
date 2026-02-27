@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
-import SiteHeader from "../components/SiteHeader.jsx";
+import { MainMenu } from "../components/MainMenu.jsx";
 import SiteFooter from "../components/SiteFooter.jsx";
 import Button from "../components/ui/button.jsx";
 
@@ -8,8 +8,8 @@ export default class CreditsPage extends React.Component {
 	render() {
 		return (
 			<div className="min-h-screen flex flex-col bg-bg text-text">
-				<SiteHeader />
-				<main className="flex-1">
+				<MainMenu />
+				<main className="flex-1 pt-24">
 					<section className="py-10">
 						<div className="container-page">
 							<h1 className="text-[var(--fs-h1)] tracking-[var(--ls-heading)] font-semibold">Credits</h1>
