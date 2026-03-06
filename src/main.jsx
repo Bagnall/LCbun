@@ -6,7 +6,7 @@ import "./styles/globals.scss";
 
 createRoot(document.getElementById("root")).render(
 
-	<BrowserRouter>
+	<BrowserRouter basename="/projects/richard/lcbun">
 		<ThemeProvider>
 			<App />
 		</ThemeProvider>

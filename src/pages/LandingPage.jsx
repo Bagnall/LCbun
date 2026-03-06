@@ -5,6 +5,8 @@ import SiteFooter from "../components/SiteFooter.jsx";
 import Button from "../components/ui/button.jsx";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../components/ui/card.jsx";
 import { getUnits } from "../data/course.js";
+import heroBanner from "@/assets/hero-banner.svg";
+
 
 function Section({ title, children }) {
 	return (
@@ -24,7 +26,6 @@ function Section({ title, children }) {
 export default class LandingPage extends React.Component {
 	render() {
 		const units = getUnits();
-
 		return (
 			<div className="min-h-screen flex flex-col bg-bg text-text pt-24">
 				<MainMenu />
@@ -35,9 +36,10 @@ export default class LandingPage extends React.Component {
 							<div
 								className="relative overflow-hidden rounded-xl border border-border bg-surface1 shadow-card"
 								style={{
-									backgroundImage: "url(/src/assets/hero-banner.svg)",
+									backgroundImage: `url("${heroBanner}")`,
 									backgroundSize: "cover",
 									backgroundPosition: "center",
+									backgroundRepeat: "no-repeat",
 								}}
 							>
 								<div className="absolute inset-0 bg-[rgb(0_0_0/0.28)]" />
