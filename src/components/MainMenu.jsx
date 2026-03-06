@@ -207,7 +207,7 @@ export class MainMenu extends React.Component {
 							<NavigationMenuItem>
 								<NavigationMenuLink asChild>
 									<Link
-										to="/"
+										to="../"
 										className="special-anchor nav nav-title"
 										onClick={() => {
 											if (this.state.mobileOpen) {
