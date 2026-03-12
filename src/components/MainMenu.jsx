@@ -53,6 +53,11 @@ export class MainMenu extends React.Component {
 
 	componentWillUnmount() {
 		this.detachListeners();
+
+		if (this._highlightRAF) {
+			cancelAnimationFrame(this._highlightRAF);
+			this._highlightRAF = null;
+		}
 	}
 
 	hasNav() {
@@ -62,14 +67,15 @@ export class MainMenu extends React.Component {
 
 	attachListeners() {
 		if (!this.scrollHandler) {
-			this.scrollHandler = () => {
-				if (this._highlightThrottleRunning) return;
-				this._highlightThrottleRunning = true;
+			this._highlightRAF = null;
 
-				setTimeout(() => {
+			this.scrollHandler = () => {
+				if (this._highlightRAF) return;
+
+				this._highlightRAF = requestAnimationFrame(() => {
 					this.updateHighlight();
-					this._highlightThrottleRunning = false;
-				}, 200);
+					this._highlightRAF = null;
+				});
 			};
 
 			document.addEventListener("scroll", this.scrollHandler, { passive: true });
@@ -106,25 +112,25 @@ export class MainMenu extends React.Component {
 		const mainMenu = document.getElementById("mainMenu");
 		if (!mainMenu) return;
 
-		const mainMenuBottom = mainMenu.getBoundingClientRect().bottom;
+		const menuBottom = mainMenu.getBoundingClientRect().bottom;
 		const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
-		const candidates = [];
+		let best = null;
 
 		for (const item of navItems) {
 			const target = document.getElementById(item.anchorId);
 			if (!target) continue;
 
 			const rect = target.getBoundingClientRect();
-			if (rect.top >= mainMenuBottom && rect.top < viewportHeight) {
-				candidates.push({ key: item.key, top: rect.top });
+
+			// Section is still on screen and has reached the menu line
+			const isInView = rect.bottom > menuBottom && rect.top < viewportHeight;
+
+			if (isInView) {
+				best = item.key;
+				break;
 			}
 		}
-
-		if (!candidates.length) return;
-
-		candidates.sort((a, b) => a.top - b.top);
-		const best = candidates[0].key;
 
 		if (this.state.menuHighlight !== best) {
 			this.setState({ menuHighlight: best });
@@ -135,8 +141,12 @@ export class MainMenu extends React.Component {
 		this.setState((prev) => ({ mobileOpen: !prev.mobileOpen }));
 	};
 
-	handleNavClick = (e) => {
+	handleNavClick = (e, itemKey) => {
 		handleSpecialLinkClick(e);
+
+		if (this.state.menuHighlight !== itemKey) {
+			this.setState({ menuHighlight: itemKey });
+		}
 
 		if (this.state.mobileOpen) {
 			this.setState({ mobileOpen: false });
@@ -171,7 +181,7 @@ export class MainMenu extends React.Component {
 							<a
 								className="special-anchor nav nav-link rounded-md px-2 py-1 text-[0.95rem] text-[rgb(var(--text))] transition-colors hover:bg-[rgb(var(--surface-2))]"
 								href={href}
-								onClick={this.handleNavClick}
+								onClick={(e) => this.handleNavClick(e, item.key)}
 							>
 								{item.label}
 							</a>
@@ -195,7 +205,7 @@ export class MainMenu extends React.Component {
 									? "nav-link-mobile nav special-anchor block py-2 text-[0.95rem] font-semibold text-[rgb(var(--primary))] no-underline transition-colors hover:bg-[rgb(var(--surface-2))]"
 									: "nav-link-mobile nav special-anchor block py-2 text-[0.95rem] text-[rgb(var(--text))] no-underline transition-colors hover:bg-[rgb(var(--surface-2))]"
 							}
-							onClick={this.handleNavClick}
+							onClick={(e) => this.handleNavClick(e, item.key)}
 						>
 							{item.label}
 						</a>
